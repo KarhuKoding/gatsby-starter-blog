@@ -203,13 +203,10 @@ https://threejs.org/docs/#api/en/geometries/EdgesGeometry, its good enough also 
 I created a custom Shader Material, added some stripes and rotated them using following
 rotation matrix:
 ```
-
     mat2 rotate2d(float angle){
       return mat2(cos(angle),-sin(angle),
                   sin(angle),cos(angle));
-
 }
-
 ```
 
 <img alt="paper" src="roof.PNG" width="250px" />
@@ -220,10 +217,9 @@ rotation matrix:
     - Sobel edge Detection
     - Adding Wind animation in the Trees:
     You could rotate the meshed with react three fiber by accessing the refs and the useFrame Hook from react three fiber
+
 ```
-
      useFrame((state, delta) => (ref.current.rotation.x += delta))
-
 ```
 
 <strong>Our better you use a custom Vertex Shader, you can use mine </strong>:
