@@ -10,14 +10,14 @@ description: THREE.js React Three Fiber Postprocessing WEBGL Vineyard
 - Main Techstack: React, React Three Fiber, Postprocessing and custom shaders, Vite Bundler, MantineUI
 - Super fast loading time on the web and very decent on mobile 
 
-The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a French Team called https://immersive-g.com/ based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this [project](https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7). Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your.
+The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a french team called https://immersive-g.com/ based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this [project](https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7). Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your.
 
 ## 1. Make a 3D Model
 
 I do use Blender, keep the number of verticies low, and watch out for dublicated verticies (Merge by Distance).
 Check that the normals are facing in the right direction and export everything as a compressed "glb".
-The rest is up to your creativity; for this project, I used a Google Maps screenshot as a reference.
-I ended up with almost 54.000 Vertices, sounds like a lot but THREE. JS can handle that pretty well.
+The rest is up to your creativity. For this project, I used a Google Maps screenshot as a reference.
+I ended up with almost 54.000 Vertices, sounds like a lot but THREE.JS can handle that pretty well.
 Also, adding some details here and there to the models makes the page look more interesting.
 
 ![blender](blender-img.png "3D Model in Blender")
@@ -27,21 +27,22 @@ reference:
 
 ## 2. React + React Fiber (Three.JS) 😳
 
-I do use react-three-fiber for smaller projects like this because it really speeds up the development process
+I do use react-three-fiber for smaller projects like this, because it really speeds up the development process
 a lot, since it's an abstraction layer on top of THREE.JS.
-If you are concerned about the performance, which I had been too, because the natureof react is
-to rerender parts of the application when props or states change, and WebGL doesn't like "renderings" at all,
+If you are concerned about the performance, which I had been too, because the nature of React is
+to rerender parts of the application when props or states changes, and WebGL doesn't like "renderings" at all,
 you should watch [this interview with Paul Henschel](https://www.youtube.com/watch?v=rzhCVvacvMo&ab_channel=KendoUI) 
 from the "pmnd" team (react three fiber)
 
 ## 3. Postprocessing
 
 After importing the models into the scene, it will probably look like it does in Blender, or even worse.
-You can create the scene with baked materials from Blender or make them on your own with a THREE.JS Material.
-But this will use resources, especially when you do not instanciate dublacte meshes.
+You can create the scene with baked materials from Blender or make them on your own Materials with a THREE.JS.
+But this will use resources, especially when you do not instanciate duplicate meshes.
 I have not instantiated the trees in this project either, because there are not a lot.
 But for my webpage, https://karhukoding.net/ it's very useful because this page is already expensive enough.
-So to achieve this, the scene runs through several passes to alter the look of the whole scene.
+
+So to achieve this "paper-draw-look", the scene runs through several passes to alter the look of the whole scene.
 You can implement this with https://docs.pmnd.rs/react-postprocessing/introduction.
 This package is based on https://github.com/pmndrs/postprocessing.
 
@@ -50,12 +51,12 @@ Passes used:
 - Vignette
 - Outline
 - custom Sepia
-- custom texture
+- custom Texture
 
 
 The Vignette and Outline Pass are taken from the libraries mentioned above.
 The Vignette Pass is responsible for the dark corners of the scene.
-Outline is used in the mobile view to highlight the elements the user is supposed to interact with.
+The Outline Pass is used in the mobile view to highlight the elements the user is supposed to interact with.
 
 #### Custom Passes:
 
@@ -94,10 +95,10 @@ I do use the BlendFunction.DIVIDE
 
 ![paper](paper-img.png "Roof Texture")
 
-## 4. Outline
+## 4. Outline / Edges
 
-The outline seen on the houses is done with ["EdgesGeometry"](https://threejs.org/docs/#api/en/geometries/EdgesGeometry), 
-its good enough also with efficeny back mind, but if you want to go fancy you can go with a nice Sobel Edge Detection:
+The Edges seen on the Buildings is done with ["EdgesGeometry"](https://threejs.org/docs/#api/en/geometries/EdgesGeometry), 
+its good enough also with efficiency back in mind, but if you want to go fancy you can go with a nice Sobel Edge Detection:
  
   ```js
   uniforms: {
@@ -195,10 +196,11 @@ mat2 rotate2d(float angle){
 
 ![roof](roof-img.png "Roof Shader")
 
-## 6. Improvements
+## 6. Possible Improvements
 
 - Baking shadows into the scene in Blender would probably make a nice visual improvement.
 - Edge detection
+- Depth Pass
 - Adding Wind-Animation to the trees:
     - You could rotate the mesh with react three fiber by accessing the refs and the useFrame Hook from react three fiber
 
@@ -219,6 +221,6 @@ The overall performance is very good for a project running on an 8-year-old iPho
 
 Thanks for reading. If you are interested in a webpage like this or have a question, you can contact me on LinkedIn.
 
-### Greeting Johannes as KarhuKoding
+### Greetings Johannes as KarhuKoding
 
 
