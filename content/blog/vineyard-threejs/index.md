@@ -81,25 +81,22 @@ const fragmentShader = /* glsl */ `
 
 The challenge was to tint the whole scene with a sepia color but keep the red color for
 the hoverable areas.
-This is a problem because a simple sepia pass would also tint the scene, so there would be no
-red color, or the red color would look like a darkish color.
+This is a problem because a simple sepia pass would also tint the highlightareas, so there would be no red color, or the red color would look like a darkish color.
 You can create a new scene that would not be affected by the effects running in the other scene,
-but you would end up with a depth problem, so the red areas would cover the objects in our main scene.
-How I Solved the Problem I do keep it for myself since I also want to sell my knowledge, but I am sure you will
-find out.
+but you would end up with a depth problem, so the red areas would cover the objects in our main scene. How I solved the problem I do keep it for myself since I also want to sell my knowledge, but I am sure you will find out.
 
 ![redareas](redareas-img.png "Highlight Areas")
 
 If you look closely, you can see a paper texture on top of the scene. There is no pass for that provided by react-postprocessing.
 So I implemented on my own to React from [here](https://github.com/pmndrs/postprocessing/blob/main/src/effects/TextureEffect.js) and simplified it for my needs.
 
-I do use the BlendFunction.DIVIDE blend function
+I do use the BlendFunction.DIVIDE
 
 ![paper](paper-img.png "Roof Texture")
 
 ## 4. Outline
 
-The outline seen on the houses is done with []"EdgesGeometry"](https://threejs.org/docs/#api/en/geometries/EdgesGeometry), 
+The outline seen on the houses is done with ["EdgesGeometry"](https://threejs.org/docs/#api/en/geometries/EdgesGeometry), 
 its good enough also with efficeny back mind, but if you want to go fancy you can go with a nice Sobel Edge Detection:
  
   ```js
