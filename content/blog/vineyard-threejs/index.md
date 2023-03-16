@@ -27,11 +27,11 @@ reference:
 
 ## 2. React + React Fiber (Three.JS) 😳
 
-I do use React Fiber for smaller projects like this because it really speeds up the development process.
+I do use react-three-fiber for smaller projects like this because it really speeds up the development process
 a lot, since it's an abstraction layer on top of THREE.JS.
-If you are concerned about the performance, which I had been too, because the nature is
-to rerender parts of the application when props or states change, and WebGL doesn't like renderings.
-You should watch [this interview with Paul Henschel](https://www.youtube.com/watch?v=rzhCVvacvMo&ab_channel=KendoUI) 
+If you are concerned about the performance, which I had been too, because the natureof react is
+to rerender parts of the application when props or states change, and WebGL doesn't like "renderings" at all,
+you should watch [this interview with Paul Henschel](https://www.youtube.com/watch?v=rzhCVvacvMo&ab_channel=KendoUI) 
 from the "pmnd" team (react three fiber)
 
 ## 3. Postprocessing
