@@ -7,10 +7,10 @@ description: THREE.js React Three Fiber Postprocessing WEBGL Vineyard
 ![Vineyard](./main.gif)
 
 - Project Time: 5 days
-- Main Techstack: React, React Three Fiber, Postprocessing and custom shaders, Vite Bunlder, MantineUI
+- Main Techstack: React, React Three Fiber, Postprocessing and custom shaders, Vite Bundler, MantineUI
 - Super fast loading time on the web and very decent on mobile 
 
-The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a French Team called https://immersive-g.com/ based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this project: https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7. Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your.
+The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a French Team called https://immersive-g.com/ based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this [project](https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7). Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your.
 
 ## 1. Make a 3D Model
 
@@ -20,11 +20,10 @@ The rest is up to your creativity; for this project, I used a Google Maps screen
 I ended up with almost 54.000 Vertices, sounds like a lot but THREE. JS can handle that pretty well.
 Also, adding some details here and there to the models makes the page look more interesting.
 
-<img alt="blender" src="blender-img.png"  width="450px"/>
-
+![blender](blender-img.png "3D Model in Blender")
 reference:
+![googlemaps](googlemaps-img.png "Reference Picture")
 
-<img alt="googlemaps" src="googlemaps-img.png"  width="450px" />
 
 ## 2. React + React Fiber (Three.JS) 😳
 
@@ -32,8 +31,8 @@ I do use React Fiber for smaller projects like this because it really speeds up 
 a lot, since it's an abstraction layer on top of THREE.JS.
 If you are concerned about the performance, which I had been too, because the nature is
 to rerender parts of the application when props or states change, and WebGL doesn't like renderings.
-You should watch this interview with Paul Henschel from the "pmnd" team (react three fiber):
-https://www.youtube.com/watch?v=rzhCVvacvMo&ab_channel=KendoUI
+You should watch [this interview with Paul Henschel](https://www.youtube.com/watch?v=rzhCVvacvMo&ab_channel=KendoUI) 
+from the "pmnd" team (react three fiber)
 
 ## 3. Postprocessing
 
@@ -89,19 +88,19 @@ but you would end up with a depth problem, so the red areas would cover the obje
 How I Solved the Problem I do keep it for myself since I also want to sell my knowledge, but I am sure you will
 find out.
 
-<img alt="redareas" src="redareas-img.png" width="250px"/>
+![redareas](redareas-img.png "Highlight Areas")
 
 If you look closely, you can see a paper texture on top of the scene. There is no pass for that provided by react-postprocessing.
-So I implemented on my own to React from https://github.com/pmndrs/postprocessing/blob/main/src/effects/TextureEffect.js and simplified it for my needs.
+So I implemented on my own to React from [here](https://github.com/pmndrs/postprocessing/blob/main/src/effects/TextureEffect.js) and simplified it for my needs.
 
 I do use the BlendFunction.DIVIDE blend function
 
-<img alt="paper" src="paper-img.png"  width="250px"/>
+![paper](paper-img.png "Roof Texture")
 
 ## 4. Outline
 
-The outline seen on the houses is done with
-https://threejs.org/docs/#api/en/geometries/EdgesGeometry, its good enough also with efficeny back mind, but if you want to go fancy you can go with a nice Sobel Edge Detection:
+The outline seen on the houses is done with []"EdgesGeometry"](https://threejs.org/docs/#api/en/geometries/EdgesGeometry), 
+its good enough also with efficeny back mind, but if you want to go fancy you can go with a nice Sobel Edge Detection:
  
   ```js
   uniforms: {
@@ -197,7 +196,7 @@ mat2 rotate2d(float angle){
 };
 ```
 
-<img alt="roof" src="roof-img.png" width="250px" />
+![roof](roof-img.png "Roof Shader")
 
 ## 6. Improvements
 
@@ -210,9 +209,8 @@ mat2 rotate2d(float angle){
      useFrame((state, delta) => (ref.current.rotation.x += delta))
 ```
 
-<strong>You use a custom Vertex Shader, (use mine :) ) to create a Wind effect</strong>:
-https://gist.github.com/KarhuKoding/ab1d00cb353be7a0bc35e76936288bce
-this is based on a 3D rotation Matrix https://en.wikipedia.org/wiki/Rotation_matrix
+<strong>You use a custom Vertex Shader, [use mine 😊](https://gist.github.com/KarhuKoding/ab1d00cb353be7a0bc35e76936288bce) to create a Wind effect</strong>:
+this is based on a [3D rotation Matrix](https://en.wikipedia.org/wiki/Rotation_matrix)
 
 ## 7. Performance 
 
