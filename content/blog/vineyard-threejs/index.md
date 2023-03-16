@@ -7,7 +7,7 @@ description: THREE.js React Three Fiber Postprocessing WEBGL Vineyard
 <img alt="main" src="gif.gif" />
 
 - Project Time: 5 days
-- Main Techstack: React, React Three Fiber, React Postprocessing, Postprocessing and custom Shaders, Vite Bunlder, MantineUI
+- Main Techstack: React, React Three Fiber, Postprocessing and custom Shaders, Vite Bunlder, MantineUI
 - Super fast loading Time on the Web and very decent on Mobile (Iphone 6s)
 
 The goals was to create something simliar to https://chartogne-taillet.com/en one of the best WebGL Experiences on the Web that I know.
@@ -224,7 +224,11 @@ https://gist.github.com/KarhuKoding/ab1d00cb353be7a0bc35e76936288bce
 
 this is based on a 3D rotation Matrix https://en.wikipedia.org/wiki/Rotation_matrix
 
+6. Performance 
 
+The overall Performance is very good, porject is running on an old 8 years old IPhone 6s 
+
+<img  alt="main-png" src="iphone.jpeg" width="250px/>
 
 <hr/>
 
