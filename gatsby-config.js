@@ -9,15 +9,14 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Blog - KarhuKoding`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Johannes Walenta`,
+      summary: `German Software Developer living in Finland`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://https://karhukoding.net/`,
     social: {
-      twitter: `kylemathews`,
+      linkedIn: `https://www.linkedin.com/in/johannes-walenta-6a3857112/`,
     },
   },
   plugins: [
