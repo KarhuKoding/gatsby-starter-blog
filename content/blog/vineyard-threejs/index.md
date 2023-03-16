@@ -39,7 +39,7 @@ from the "pmnd" team (react three fiber)
 After importing the models into the scene, it will probably look like it does in Blender, or even worse.
 You can create the scene with baked materials from Blender or make them on your own with a THREE.JS Material.
 But this will use resources, especially when you do not instanciate dublacte meshes.
-I have not instantiated the threes in this project either, because there are not a lot.
+I have not instantiated the trees in this project either, because there are not a lot.
 But for my webpage, https://karhukoding.net/ it's very useful because this page is already expensive enough.
 So to achieve this, the scene runs through several passes to alter the look of the whole scene.
 You can implement this with https://docs.pmnd.rs/react-postprocessing/introduction.
@@ -59,7 +59,7 @@ Outline is used in the mobile view to highlight the elements the user is suppose
 
 #### Custom Passes:
 
-- SepiaPass:
+- Sepia Pass:
 You can create a Sepia Pass with the following shaders code:
 
 ```
@@ -197,13 +197,13 @@ mat2 rotate2d(float angle){
 
 ## 6. Improvements
 
-    - Baking shadows into the scene in Blender would probably make a nice visual improvement.
-    - Sobel edge detection
-    - Adding Wind Animation to the Trees:
-    You could rotate the mesh with react three fiber by accessing the refs and the useFrame Hook from react three fiber
+- Baking shadows into the scene in Blender would probably make a nice visual improvement.
+- Edge detection
+- Adding Wind-Animation to the trees:
+    - You could rotate the mesh with react three fiber by accessing the refs and the useFrame Hook from react three fiber
 
 ```
-     useFrame((state, delta) => (ref.current.rotation.x += delta))
+useFrame((state, delta) => (ref.current.rotation.x += delta))
 ```
 
 <strong>You use a custom Vertex Shader, [use mine 😊](https://gist.github.com/KarhuKoding/ab1d00cb353be7a0bc35e76936288bce) to create a Wind effect</strong>:
