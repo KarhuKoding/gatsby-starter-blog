@@ -10,7 +10,7 @@ description: THREE.js React Three Fiber Postprocessing WEBGL Vineyard
 - Main Techstack: React, React Three Fiber, Postprocessing and custom shaders, Vite Bundler, MantineUI
 - Super fast loading time on the web and very decent on mobile 
 
-The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a french team called https://immersive-g.com/ based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this [project](https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7). Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your own.
+The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a team called [Immersive Garden](https://immersive-g.com/) based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this [project](https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7). Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your own.
 
 ## 1. Make a 3D Model
 
