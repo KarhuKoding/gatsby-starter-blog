@@ -10,7 +10,7 @@ description: THREE.js React Three Fiber Postprocessing WEBGL Vineyard
 - Main Techstack: React, React Three Fiber, Postprocessing and custom shaders, Vite Bundler, MantineUI
 - Super fast loading time on the web and very decent on mobile 
 
-The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a french team called https://immersive-g.com/ based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this [project](https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7). Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your.
+The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a french team called https://immersive-g.com/ based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this [project](https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7). Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your own.
 
 ## 1. Make a 3D Model
 
@@ -37,7 +37,7 @@ from the "pmnd" team (react three fiber)
 ## 3. Postprocessing
 
 After importing the models into the scene, it will probably look like it does in Blender, or even worse.
-You can create the scene with baked materials from Blender or make them on your own Materials with a THREE.JS.
+You can create the scene with baked materials from Blender or make them on your own with a THREE.JS Materials.
 But this will use resources, especially when you do not instanciate duplicate meshes.
 I have not instantiated the trees in this project either, because there are not a lot.
 But for my webpage, https://karhukoding.net/ it's very useful because this page is already expensive enough.
@@ -219,7 +219,7 @@ The overall performance is very good for a project running on an 8-year-old iPho
 
 <hr/>
 
-Thanks for reading. If you are interested in a webpage like this or have a question, you can contact me on LinkedIn.
+Thanks for reading. If you are interested in a webpage like this or have a question, you can contact me on [LinkedIn](https://www.linkedin.com/in/johannes-walenta-6a3857112/).
 
 ### Greetings Johannes as KarhuKoding
 
