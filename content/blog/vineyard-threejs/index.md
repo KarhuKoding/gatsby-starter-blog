@@ -20,11 +20,11 @@ The rest is up to your creativity; for this project, I used a Google Maps screen
 I ended up with almost 54.000 Vertices, sounds like a lot but THREE. JS can handle that pretty well.
 Also, adding some details here and there to the models makes the page look more interesting.
 
-<img alt="paper" src="blender.png"  width="450px"/>
+<img alt="paper" src="blender.PNG"  width="450px"/>
 
 reference:
 
-<img alt="paper" src="googleMaps.png"  width="450px" />
+<img alt="paper" src="googleMaps.PNG"  width="450px" />
 
 ## 2. React + React Fiber (Three.JS) 😳
 
@@ -58,7 +58,7 @@ The Vignette and Outline Pass are taken from the libraries mentioned above.
 The Vignette Pass is responsible for the dark corners of the scene.
 Outline is used in the mobile view to highlight the elements the user is supposed to interact with.
 
-Custom Passes:
+#### Custom Passes:
 
 - SepiaPass:
 You can create a Sepia Pass with the following shaders code:
@@ -89,14 +89,14 @@ but you would end up with a depth problem, so the red areas would cover the obje
 How I Solved the Problem I do keep it for myself since I also want to sell my knowledge, but I am sure you will
 find out.
 
-<img alt="paper" src="redareas.png" width="250px"/>
+<img alt="paper" src="redareas.PNG" width="250px"/>
 
 If you look closely, you can see a paper texture on top of the scene. There is no pass for that provided by react-postprocessing.
 So I implemented on my own to React from https://github.com/pmndrs/postprocessing/blob/main/src/effects/TextureEffect.js and simplified it for my needs.
 
 I do use the BlendFunction.DIVIDE blend function
 
-<img alt="paper" src="paper.png"  width="250px"/>
+<img alt="paper" src="paper.PNG"  width="250px"/>
 
 ## 4. Outline
 
@@ -197,7 +197,7 @@ mat2 rotate2d(float angle){
 };
 ```
 
-<img alt="paper" src="roof.png" width="250px" />
+<img alt="paper" src="roof.PNG" width="250px" />
 
 ## 6. Improvements
 
@@ -212,14 +212,13 @@ mat2 rotate2d(float angle){
 
 <strong>You use a custom Vertex Shader, (use mine :) ) to create a Wind effect</strong>:
 https://gist.github.com/KarhuKoding/ab1d00cb353be7a0bc35e76936288bce
-
 this is based on a 3D rotation Matrix https://en.wikipedia.org/wiki/Rotation_matrix
 
 ## 7. Performance 
 
 The overall performance is very good for a project running on an 8-year-old iPhone 6.
 
-<img  alt="main-png" src="iphone.jpeg" width="250px/>
+<img  alt="main-png" src="iphone.jpeg" width="250px" />
 
 <hr/>
 
