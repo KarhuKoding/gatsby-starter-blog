@@ -46,7 +46,7 @@ const Bio = () => {
         <p>
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
-          <a href={`${social?.linkedIn || ``}`}>
+          <a href={`https://www.linkedin.com/in/johannes-walenta-6a3857112/`}>
             Contact me on LinkedIn
           </a>
         </p>

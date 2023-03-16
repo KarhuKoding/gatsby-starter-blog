@@ -194,21 +194,22 @@ https://threejs.org/docs/#api/en/geometries/EdgesGeometry, its good enough also 
 ```
 
 <hr />
-5. Roof Material
+
+## 5. Roof Material
 
 
 I created a custom Shader Material, added some stripes and rotated them using following
 rotation matrix:
 ```
-    mat2 rotate2d(float angle){
-      return mat2(cos(angle),-sin(angle),
-                  sin(angle),cos(angle));
-}
+mat2 rotate2d(float angle){
+    return mat2(cos(angle),-sin(angle),
+                sin(angle),cos(angle));
+};
 ```
 
 <img alt="paper" src="roof.png" width="250px" />
 
-5. Improvements
+## 6. Improvements
 
     - Baking Shadows into the Scene in Blender, would problably make a nice visual improvbement
     - Sobel edge Detection
@@ -224,7 +225,7 @@ https://gist.github.com/KarhuKoding/ab1d00cb353be7a0bc35e76936288bce
 
 this is based on a 3D rotation Matrix https://en.wikipedia.org/wiki/Rotation_matrix
 
-6. Performance 
+## 7. Performance 
 
 The overall Performance is very good, porject is running on an old 8 years old IPhone 6s 
 
@@ -232,8 +233,7 @@ The overall Performance is very good, porject is running on an old 8 years old I
 
 <hr/>
 
-Thanks for reading, if you are interessted in a Webpage like this our have question you can write me
-on LinkedIn: https://www.linkedin.com/in/johannes-walenta-6a3857112/
+Thanks for reading, if you are interessted in a Webpage like this our have question you contact me on LinkedIn
 
 ### Greeting Johannes as KarhuKoding
 
