@@ -4,7 +4,7 @@ date: "2023-03-16T10:24:32.169Z"
 description: THREE.js React Three Fiber Postprocessing WEBGL Vineyard
 ---
 
-<img alt="main" src="./gif.gif" />
+<img alt="main" src="gif.gif" />
 
 - Project Time: 5 days
 - Main Techstack: React, React Three Fiber, React Postprocessing, Postprocessing and custom Shaders, Vite Bunlder, MantineUI
@@ -24,13 +24,13 @@ The rest is on your creativiy, for this Project i used a Google Maps Screenshot 
 I ended up with almost 54.000 Vertices, sounds like a lot but THREE.js can handle that pretty well.
 Also adding some details here an there to the models make the Page look more interesting
 
-<img alt="paper" src="blender.PNG"  width="450px"/>
+<img alt="paper" src="blender.png"  width="450px"/>
 
 reference:
 
-<img alt="paper" src="googleMaps.PNG"  width="450px" />
+<img alt="paper" src="googleMaps.png"  width="450px" />
 
-## 2. React + React Fiber
+## 2. React + React Fiber (Three.js) 😳
 
 I do use React Fiber for smaller Projects like this, because it really speeds up the Development Process
 a lot, since its an abstraction layer on top of THREE.js.
@@ -93,7 +93,7 @@ but you would end up with a depth problem, so the red areas would cover the Obje
 How i solved the Problem I do keep for myself since I also want to sell my knowledge but I am sure you will
 find out.
 
-<img alt="paper" src="redareas.PNG" width="250px"/>
+<img alt="paper" src="redareas.png" width="250px"/>
 
 Texture Pass:
 
@@ -103,16 +103,14 @@ from https://github.com/pmndrs/postprocessing/blob/main/src/effects/TextureEffec
 and simplyfied it for my needs.
 I do use the BlendFunction.DIVIDE blend function
 
-<img alt="paper" src="paper.PNG"  width="250px"/>
+<img alt="paper" src="paper.png"  width="250px"/>
 
 ## 4. Outline
 
 The outline seen on the Houses is done with
 https://threejs.org/docs/#api/en/geometries/EdgesGeometry, its good enough also with efficeny back mind but if you want to go fancy you can go with a nice Sobel Edge Detection:
 
-<details>
-  <summary>See Code</summary>
-  
+
  
   ```js
   uniforms: {
@@ -194,7 +192,6 @@ https://threejs.org/docs/#api/en/geometries/EdgesGeometry, its good enough also 
     ].join( "\n" )
 
 ```
-</details>
 
 <hr />
 5. Roof Material
@@ -209,7 +206,7 @@ rotation matrix:
 }
 ```
 
-<img alt="paper" src="roof.PNG" width="250px" />
+<img alt="paper" src="roof.png" width="250px" />
 
 5. Improvements
 
