@@ -7,22 +7,18 @@ description: THREE.js React Three Fiber Postprocessing WEBGL Vineyard
 <img alt="main" src="gif.gif" />
 
 - Project Time: 5 days
-- Main Techstack: React, React Three Fiber, Postprocessing and custom Shaders, Vite Bunlder, MantineUI
-- Super fast loading Time on the Web and very decent on Mobile (Iphone 6s)
+- Main Techstack: React, React Three Fiber, Postprocessing and custom shaders, Vite Bunlder, MantineUI
+- Super fast loading time on the web and very decent on mobile 
 
-The goals was to create something simliar to https://chartogne-taillet.com/en one of the best WebGL Experiences on the Web that I know.
-The theming really fits well to Vinemakers and its done from a French Team called https://immersive-g.com/ based in Paris.
-I wanted to reproduce this outcome, the challenge was that I am a single Programmer and do not have that much time and also there is little information on how they have achieved such an outcome. This is the only helpful information I could find to this
-project: https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7. Reengineering the shader code is possbile
-since this code does not get minified, but its is more useful to use your time to think on your.
+The goal was to create something similar to https://chartogne-taillet.com/en one of the best WebGL experiences that I know. The theming really fits well to Vinemakers and its done from a French Team called https://immersive-g.com/ based in Paris. I wanted to reproduce this outcome, but the challenge was that I am a single programmer and do not have that much time, and there is little information on how they have achieved such an outcome. This is the only helpful information I could find for this project: https://medium.com/@hello_11138/chartogne-taillet-experience-site-case-study-53431d5f75f7. Reengineering the shader code is possible since this code does not get minified, but it is more useful to use your time to think on your.
 
 ## 1. Make a 3D Model
 
-I do use Blender, keep the amout of Vertecies low, watch out for dublicated Vertecies (Merge by Distance)
-checkt that the normals are facing into the right direction an export everything as a compressed glb.
-The rest is on your creativiy, for this Project i used a Google Maps Screenshot as a reference.
-I ended up with almost 54.000 Vertices, sounds like a lot but THREE.js can handle that pretty well.
-Also adding some details here an there to the models make the Page look more interesting
+I do use Blender, keep the number of verticies low, and watch out for dublicated verticies (Merge by Distance).
+Check that the normals are facing in the right direction and export everything as a compressed "glb".
+The rest is up to your creativity; for this project, I used a Google Maps screenshot as a reference.
+I ended up with almost 54.000 Vertices, sounds like a lot but THREE. JS can handle that pretty well.
+Also, adding some details here and there to the models makes the page look more interesting.
 
 <img alt="paper" src="blender.png"  width="450px"/>
 
@@ -30,42 +26,42 @@ reference:
 
 <img alt="paper" src="googleMaps.png"  width="450px" />
 
-## 2. React + React Fiber (Three.js) 😳
+## 2. React + React Fiber (Three.JS) 😳
 
-I do use React Fiber for smaller Projects like this, because it really speeds up the Development Process
-a lot, since its an abstraction layer on top of THREE.js.
+I do use React Fiber for smaller projects like this because it really speeds up the development process.
+a lot, since it's an abstraction layer on top of THREE.JS.
 If you are concerned about the performance, which I had been too, because the nature is
-to rerender parts of the application on props/state change and WebGL doesn't like rerenderings
-you should watch this interview with Paul Henschel from the "pmnd" team (react three fiber):
+to rerender parts of the application when props or states change, and WebGL doesn't like renderings.
+You should watch this interview with Paul Henschel from the "pmnd" team (react three fiber):
 https://www.youtube.com/watch?v=rzhCVvacvMo&ab_channel=KendoUI
 
 ## 3. Postprocessing
 
-After importing the Models to the Scene it will probably look like in Blender or even worse.
-You can will the scene with baked materials from Blender or make them on your own with a THREE.js Material
-But this will use rescources especially when you do not instanciate dublacte meshes.
-I do not have instanciated the threes in this project either because there are not a lot
-but for my webpage karhukoding.de its very userful because this page is alreay expensice enought.
-
-So to achieve this the scene runs throug severy ShadersPasses to alter the look of the whole scene.
+After importing the models into the scene, it will probably look like it does in Blender, or even worse.
+You can create the scene with baked materials from Blender or make them on your own with a THREE.JS Material.
+But this will use resources, especially when you do not instanciate dublacte meshes.
+I have not instantiated the threes in this project either, because there are not a lot.
+But for my webpage, https://karhukoding.net/ it's very useful because this page is already expensive enough.
+So to achieve this, the scene runs through several passes to alter the look of the whole scene.
 You can implement this with https://docs.pmnd.rs/react-postprocessing/introduction.
-this package is based on https://github.com/pmndrs/postprocessing.
+This package is based on https://github.com/pmndrs/postprocessing.
 
-Passes that I use:
+Passes used:
 
 - Vignette
 - Outline
 - custom Sepia
-- custom Texture
+- custom texture
 
-The Vignette and Outline pass are taken from the libraries mentiones above.
-The Vignette Pass is responsible for the dark corners of the Scene.
-Outline is used in the Mobile view to highlight the elements the User is suposed to interact with.
+
+The Vignette and Outline Pass are taken from the libraries mentioned above.
+The Vignette Pass is responsible for the dark corners of the scene.
+Outline is used in the mobile view to highlight the elements the user is supposed to interact with.
 
 Custom Passes:
 
 - SepiaPass:
-  you can create a Sepia Pass with following Shader
+You can create a Sepia Pass with the following shaders code:
 
 ```
 const fragmentShader = /* glsl */ `
@@ -84,33 +80,28 @@ const fragmentShader = /* glsl */ `
 `;
 ```
 
-The challange was to tint the whole scene into a sepia color, but keep the red color for
+The challenge was to tint the whole scene with a sepia color but keep the red color for
 the hoverable areas.
-This is a Problem becaus a simple Sepia Pass would also tint the scene complete so there would be no
-red color or the red color would look like a darkish color
-You can create a new Scene which would not be affected by the the Effects run in the other scene,
-but you would end up with a depth problem, so the red areas would cover the Objects of our Main Scene.
-How i solved the Problem I do keep for myself since I also want to sell my knowledge but I am sure you will
+This is a problem because a simple sepia pass would also tint the scene, so there would be no
+red color, or the red color would look like a darkish color.
+You can create a new scene that would not be affected by the effects running in the other scene,
+but you would end up with a depth problem, so the red areas would cover the objects in our main scene.
+How I Solved the Problem I do keep it for myself since I also want to sell my knowledge, but I am sure you will
 find out.
 
 <img alt="paper" src="redareas.png" width="250px"/>
 
-Texture Pass:
+If you look closely, you can see a paper texture on top of the scene. There is no pass for that provided by react-postprocessing.
+So I implemented on my own to React from https://github.com/pmndrs/postprocessing/blob/main/src/effects/TextureEffect.js and simplified it for my needs.
 
-If you look close you can the a paper texture on top of the Scene. There is no for that provided by
-react-postprocessing, i did implemented it on my own to React
-from https://github.com/pmndrs/postprocessing/blob/main/src/effects/TextureEffect.js
-and simplyfied it for my needs.
 I do use the BlendFunction.DIVIDE blend function
 
 <img alt="paper" src="paper.png"  width="250px"/>
 
 ## 4. Outline
 
-The outline seen on the Houses is done with
-https://threejs.org/docs/#api/en/geometries/EdgesGeometry, its good enough also with efficeny back mind but if you want to go fancy you can go with a nice Sobel Edge Detection:
-
-
+The outline seen on the houses is done with
+https://threejs.org/docs/#api/en/geometries/EdgesGeometry, its good enough also with efficeny back mind, but if you want to go fancy you can go with a nice Sobel Edge Detection:
  
   ```js
   uniforms: {
@@ -197,8 +188,7 @@ https://threejs.org/docs/#api/en/geometries/EdgesGeometry, its good enough also 
 
 ## 5. Roof Material
 
-
-I created a custom Shader Material, added some stripes and rotated them using following
+I created a custom shader material, added some stripes, and rotated them using the following
 rotation matrix:
 ```
 mat2 rotate2d(float angle){
@@ -211,29 +201,29 @@ mat2 rotate2d(float angle){
 
 ## 6. Improvements
 
-    - Baking Shadows into the Scene in Blender, would problably make a nice visual improvbement
-    - Sobel edge Detection
-    - Adding Wind animation in the Trees:
-    You could rotate the meshed with react three fiber by accessing the refs and the useFrame Hook from react three fiber
+    - Baking shadows into the scene in Blender would probably make a nice visual improvement.
+    - Sobel edge detection
+    - Adding Wind Animation to the Trees:
+    You could rotate the mesh with react three fiber by accessing the refs and the useFrame Hook from react three fiber
 
 ```
      useFrame((state, delta) => (ref.current.rotation.x += delta))
 ```
 
-<strong>Our better you use a custom Vertex Shader, you can use mine </strong>:
+<strong>You use a custom Vertex Shader, (use mine :) ) to create a Wind effect</strong>:
 https://gist.github.com/KarhuKoding/ab1d00cb353be7a0bc35e76936288bce
 
 this is based on a 3D rotation Matrix https://en.wikipedia.org/wiki/Rotation_matrix
 
 ## 7. Performance 
 
-The overall Performance is very good, porject is running on an old 8 years old IPhone 6s 
+The overall performance is very good for a project running on an 8-year-old iPhone 6.
 
 <img  alt="main-png" src="iphone.jpeg" width="250px/>
 
 <hr/>
 
-Thanks for reading, if you are interessted in a Webpage like this our have question you contact me on LinkedIn
+Thanks for reading. If you are interested in a webpage like this or have a question, you can contact me on LinkedIn.
 
 ### Greeting Johannes as KarhuKoding
 
