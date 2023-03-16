@@ -4,7 +4,7 @@ date: "2023-03-16T10:24:32.169Z"
 description: THREE.js React Three Fiber Postprocessing WEBGL Vineyard
 ---
 
-![Vineyard](main.gif)
+![Vineyard](./main.gif)
 
 - Project Time: 5 days
 - Main Techstack: React, React Three Fiber, Postprocessing and custom shaders, Vite Bunlder, MantineUI
