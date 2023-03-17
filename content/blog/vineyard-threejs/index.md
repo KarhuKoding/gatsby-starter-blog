@@ -15,7 +15,7 @@ The goal was to create something similar to https://chartogne-taillet.com/en one
 ## 1. Make a 3D Model
 
 I do use Blender, keep the number of verticies low, and watch out for dublicated verticies (Merge by Distance).
-Check that the normals are facing in the right direction and export everything as a compressed "glb".
+Check that the normals are facing in the right direction and export everything as a compressed "gltf"-File.
 The rest is up to your creativity. For this project, I used a Google Maps screenshot as a reference.
 I ended up with almost 54.000 Vertices, sounds like a lot but THREE.JS can handle that pretty well.
 Also, adding some details here and there to the models makes the page look more interesting.
